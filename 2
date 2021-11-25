@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    setlocale(0, "");
+
+	cout << "[-] Программа Времена года\n\n"
+		"[1] Лето\n"
+		"[2] Осень\n"
+		"[3] Зима\n"
+		"[4] Весна\n\n"
+		"Выберите время года: ";
+		int ceason;
+		cin >> ceason;
+		if (ceason == 1) {
+			cout << "\nВы выбрали Лето";
+		}
+		else if (ceason == 2) {
+			cout << "\nВы выбрали Осень";
+		}
+		else if (ceason == 3) {
+			cout << "\nВы выбради Зима";
+		}
+		else if (ceason == 4) {
+			cout << "\nВы выбрали Весна";
+		}
+		else {
+			cout << "\nОшибка";
+		}
+
+
+    return 0;
+}
