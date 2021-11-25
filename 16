@@ -1,0 +1,106 @@
+#include <iostream>
+using namespace std;
+
+void clear() {
+	system("cls");
+}
+void ConsoleColor() {
+	system("Color D0");
+}
+void ConsoleColorBackGround() {
+	system("Color 0C");
+}
+void SizeInt() {
+	cout << endl << sizeof(int) << " байта";
+}
+void SizeChar() {
+	cout << endl << sizeof(char) << " байт";
+}
+void SizeDouble() {
+	cout << endl << sizeof(double) << " байт";
+}
+void SizeFloat() {
+	cout << endl << sizeof(float) << " байта";
+}
+void SizeBool() {
+	cout << endl << sizeof(bool) << " байт";
+}
+void HelloIAmFunc() {
+	cout << endl << "ПРИВЕТ Я ФУНКЦИЯ! УРА-А-А!!! ";
+}
+void KV() {
+	for (int i = 0; i < 5; i++) {
+		for (int ii = 0; ii < 5; ii++) {
+			if (i == 0 || ii == 0 || i == 4 || ii == 4)
+				cout << "# ";
+			else
+				cout << "  ";
+		}
+		cout << endl;
+	}
+}
+
+
+int main() {
+	setlocale(0, "");
+
+#pragma region Задание 16
+	int menu;
+	cout << "[+] Программа - “Функции”\n\n"
+		"[1] Очищение консоли\n"
+		"[2] Изменить цвет фона\n"
+		"[3] Изменить цвет текста\n"
+		"[4] Вывод размера типа данных INT\n"
+		"[5] Вывод размера типа данных CHAR\n"
+		"[6] Вывод размера типа данных DOUBLE\n"
+		"[7] Вывод размера типа данных FLOAT\n"
+		"[8] Вывод размера типа данных BOOL\n"
+		"[9] Вывод сообщения “Привет я функция”\n"
+		"[10] Вывод квадрата 5x5\n\n";
+	cin >> menu;
+	switch (menu) {
+	case 1: {
+		clear();
+		cout << "Консоль очищена\n";
+		break; }
+	case 2: {
+		ConsoleColor();
+		break; }
+	case 3: {
+		ConsoleColorBackGround();
+		break; }
+	case 4: {
+		SizeInt();
+		break;
+	}
+	case 5: {
+		SizeChar();
+		break;
+	}
+	case 6: {
+		SizeDouble();
+		break;
+	}
+	case 7: {
+		SizeFloat();
+		break;
+	}
+	case 8: {
+		SizeBool();
+		break;
+	}
+	case 9: {
+		HelloIAmFunc();
+		break;
+	}
+	case 10: {
+		KV();
+		break; }
+	default: {
+		cout << "\nОшибка!";
+		break; }
+	}
+#pragma endregion Задание 16(функции)
+
+	return 0;
+}
