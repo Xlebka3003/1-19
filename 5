@@ -1,0 +1,194 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    setlocale(0, "");
+
+	int menu, menuRu, menuEn;
+	cout << "[+] Переводчик\n\n"
+		"[1]Русские слова\n"
+		"[2]Английские слова\n\n"
+		"[3]Выйти\n\n";
+	cin >> menu;
+
+	switch (menu) {
+	case 1: {
+		cout << "\n[+] Переводчик - Список русских слов\n"
+			"[1]Дом\n"
+			"[2]Кот\n"
+			"[3]Яблоко\n"
+			"[4]Апельсин\n"
+			"[5]Вода\n"
+			"[6]Огонь\n"
+			"[7]Телефон\n"
+			"[8]Новый\n"
+			"[9]Мышь\n"
+			"[10]Собака\n"
+			"[11]Топор\n"
+			"[12]Обезьяна\n"
+			"[13]Воздух\n"
+			"[14]Хвост\n"
+			"[15]Рыба\n\n";
+		cin >> menuRu;
+		switch (menuRu) {
+		case 1: {
+			cout << "\n[+] Перевод : Дом --> House";
+			break;
+		}
+		case 2: {
+			cout << "\n[+] Перевод : Кот --> Cat";
+			break;
+		}
+		case 3: {
+			cout << "\n[+] Перевод : Яблоко --> Apple";
+			break;
+		}
+		case 4: {
+			cout << "\n[+] Перевод : Апельсин --> Orange";
+			break;
+		}
+		case 5: {
+			cout << "\n[+] Перевод : Вода --> Water";
+			break;
+		}
+		case 6: {
+			cout << "\n[+] Перевод : Огонь --> Fire";
+			break;
+		}
+		case 7: {
+			cout << "\n[+] Перевод : Телефон --> Telephone";
+			break;
+		}
+		case 8: {
+			cout << "\n[+] Перевод : Новый --> New";
+			break;
+		}
+		case 9: {
+			cout << "\n[+] Перевод : Мышь --> Mouse";
+			break;
+		}
+		case 10: {
+			cout << "\n[+] Перевод : Собака --> Dog";
+			break;
+		}
+		case 11: {
+			cout << "\n[+] Перевод : Топор --> Axe";
+			break;
+		}
+		case 12: {
+			cout << "\n[+] Перевод : Обезьяна --> Monkey";
+			break;
+		}
+		case 13: {
+			cout << "\n[+] Перевод : Воздух --> Air";
+			break;
+		}
+		case 14: {
+			cout << "\n[+] Перевод : Хвост --> Tail";
+			break;
+		}
+		case 15: {
+			cout << "\n[+] Перевод : Рыба --> Fish";
+			break;
+		}
+		default:
+			cout << "Ошибка!";
+			break;
+		}
+		break;
+	}
+	case 2: {
+		cout << "\n[+] Переводчик - Список английских слов\n"
+			"[1]House\n"
+			"[2]Cat\n"
+			"[3]Apple\n"
+			"[4]Orange\n"
+			"[5]Water\n"
+			"[6]Fire\n"
+			"[7]Telephon\n"
+			"[8]New\n"
+			"[9]Mouse\n"
+			"[10]Dog\n"
+			"[11]Axe\n"
+			"[12]Monkey\n"
+			"[13]Air\n"
+			"[14]Tail\n"
+			"[15]Fish\n\n";
+		cin >> menuEn;
+		switch (menuEn) {
+		case 1: {
+			cout << "\n[+] Перевод : House --> Дом";
+			break;
+		}
+		case 2: {
+			cout << "\n[+] Перевод : Cat --> Кот";
+			break;
+		}
+		case 3: {
+			cout << "\n[+] Перевод : Apple --> Яблоко";
+			break;
+		}
+		case 4: {
+			cout << "\n[+] Перевод : Orange --> Апельсин";
+			break;
+		}
+		case 5: {
+			cout << "\n[+] Перевод : Water --> Вода";
+			break;
+		}
+		case 6: {
+			cout << "\n[+] Перевод : Fire --> Огонь";
+			break;
+		}
+		case 7: {
+			cout << "\n[+] Перевод : Telephone --> Телефон";
+			break;
+		}
+		case 8: {
+			cout << "\n[+] Перевод : New --> Новый";
+			break;
+		}
+		case 9: {
+			cout << "\n[+] Перевод : Mouse --> Мышь";
+			break;
+		}
+		case 10: {
+			cout << "\n[+] Перевод : Dog --> Собака";
+			break;
+		}
+		case 11: {
+			cout << "\n[+] Перевод : Axe --> Топор";
+			break;
+		}
+		case 12: {
+			cout << "\n[+] Перевод : Monkey --> Обезьяна";
+			break;
+		}
+		case 13: {
+			cout << "\n[+] Перевод : Air --> Воздух";
+			break;
+		}
+		case 14: {
+			cout << "\n[+] Перевод : Tail --> Хвост";
+			break;
+		}
+		case 15: {
+			cout << "\n[+] Перевод : Fish --> Рыба";
+			break;
+		}
+		default:
+			cout << "Ошибка!";
+			break;
+		}
+		break;
+	}
+	case 3: {
+		exit;
+		break; }
+	default: {
+		cout << "Ошибка!";
+		break; }
+	}
+
+    return 0;
+}
