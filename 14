@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+#define clear system("cls");
+
+int main(){
+    setlocale(0, "");
+
+	const int number = 10;
+	string array[number] = { "a1","a2","a3","a4","a5","a6","a7","a8","a9","a10" };
+	for (int i = 0; i < number; i++) {
+		cout << "[" << i + 1 << "] number: " << array[i] << endl;
+	}
+	cout << endl;
+	const int number1 = 10;
+	double array1[number1] = { 1,2.6345,3,4,5.435,6,7,8,9,10.23 };
+	for (int i = 0; i < number1; i++) {
+		cout << "[" << i + 1 << "] буквы: " << array1[i] << endl;
+	}
+	cout << endl;
+	const int number2 = 10;
+	float array2[number2] = { 1.2,53.5265,546.4324,73,213,54,2,64,13,634 };
+	for (int i = 0; i < number2; i++) {
+		cout << "[" << i + 1 << "] цифры: " << array2[i] << endl;
+	}
+	cout << endl;
+	const int number3 = 10;
+	bool array3[number3] = { true,0,1,0,false,1,0,false,0,1 };
+	for (int i = 0; i < number3; i++) {
+		cout << "[" << i + 1 << "] bool: " << array3[i] << endl;
+	}
+	cout << endl;
+	const int number4 = 10;
+	char array4[number4] = { '1','5','g','j','f','j','e','r','o','o' };
+	for (int i = 0; i < number4; i++) {
+		cout << "[" << i + 1 << "] животные: " << array4[i] << endl;
+	}
+	cout << endl;
+	const int number5 = 10;
+	long array5[number5] = { 1,43,543,543,54,35,435,4,5,3 };
+	for (int i = 0; i < number5; i++) {
+		cout << "[" << i + 1 << "] ewfoewk,w: " << array[i] << endl;
+	}
+	cout << endl;
+	const int number6 = 10;
+	short array6[number6] = { 3,45,324,55,3,2,1,3,5,6 };
+	for (int i = 0; i < number6; i++) {
+		cout << "[" << i + 1 << "] gg: " << array6[i] << endl;
+	}
+	cout << endl;
+	const int number7 = 10;
+	string array7[number7] = { "k","f","h","l","r","u","o","w","s","a" };
+	for (int i = 0; i < number7; i++) {
+		cout << "[" << i + 1 << "] " << array7[i] << ": " << array7[i] << endl;
+	}
+
+    return 0;
+}
