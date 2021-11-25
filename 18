@@ -1,0 +1,477 @@
+#include <iostream>
+#include <windows.h>
+using namespace std;
+#define colorx system("color 0C")
+#define colory system("color 09")
+
+void clear() {
+	system("cls");
+}
+int game1(int bot) {
+	char array3x3[3][3] = { '.','.','.',
+								'.','.','.',
+								'.','.','.' };
+	int way = 1;
+	while (true) {
+		clear();
+		way++;
+		int player1, player2;
+
+		cout << "\t1\t2\t3\n\n\n\n";
+
+		for (int i = 0; i < 3; i++) {
+			cout << i + 1 << "\t";
+			for (int ii = 0; ii < 3; ii++) {
+				if (array3x3[i][ii] == 'x') { // \x1b[35m // \x1b[0m
+					cout << "\x1b[31m" << array3x3[i][ii] << "\t";
+					cout << "\x1b[0m";
+				}
+				else if (array3x3[i][ii] == 'o') {
+					cout << "\x1b[32m" << array3x3[i][ii] << "\t";
+					cout << "\x1b[0m";
+				}
+				else {
+					cout << array3x3[i][ii] << "\t";
+				}
+			}
+			cout << "\n\n\n\n";
+		}
+		if (way % 2 == 0) {
+			cout << "Ход\t x\n";
+			while (true)
+			{
+				cout << "Введите число: ";
+				cin >> player1;
+				cout << "Введите число: ";
+				cin >> player2;
+				if (array3x3[player1 - 1][player2 - 1] == '.') {
+					array3x3[player1 - 1][player2 - 1] = 'x';
+					break;
+				}
+				cout << "Это поле уже занято!!! Введите повторно!\n\n";
+			}
+
+		}
+		else if (bot == 2) {
+			cout << "Ход\t o\n";
+			int w, w2;
+			while (true)
+			{
+				Sleep(1000);
+				w = rand() % 3;
+				w2 = rand() % 3;
+				if (array3x3[w][w2] == '.') {
+					array3x3[w][w2] = 'o';
+					break;
+				}
+			}
+		}
+		else if (bot == 1 && way % 2 != 0) {
+			while (true)
+			{
+				cout << "Ход\t o\n";
+				cout << "Введите число: ";
+				cin >> player1;
+				cout << "Введите число: ";
+				cin >> player2;
+				if (array3x3[player1 - 1][player2 - 1] == '.') {
+					array3x3[player1 - 1][player2 - 1] = 'o';
+					break;
+				}
+				cout << "Это поле уже занято!!! Введите повторно!\n\n";
+			}
+		}
+			if (array3x3[0][0] == 'x' && array3x3[0][1] == 'x' && array3x3[0][2] == 'x' ||
+				array3x3[1][0] == 'x' && array3x3[1][1] == 'x' && array3x3[1][2] == 'x' ||
+				array3x3[2][0] == 'x' && array3x3[2][1] == 'x' && array3x3[2][2] == 'x' ||
+
+				array3x3[0][0] == 'x' && array3x3[1][0] == 'x' && array3x3[2][0] == 'x' ||
+				array3x3[0][1] == 'x' && array3x3[1][1] == 'x' && array3x3[2][1] == 'x' ||
+				array3x3[0][2] == 'x' && array3x3[1][2] == 'x' && array3x3[2][2] == 'x' ||
+
+				array3x3[0][0] == 'x' && array3x3[1][1] == 'x' && array3x3[2][2] == 'x' ||
+				array3x3[0][2] == 'x' && array3x3[1][1] == 'x' && array3x3[2][0] == 'x') {
+				clear();
+				cout << "Победа крестиков\n\nВведите любое число для выхода...\n\n";
+				int c; cin >> c;
+				clear();
+				return 0;
+			}
+			else if (array3x3[0][0] == 'o' && array3x3[0][1] == 'o' && array3x3[0][2] == 'o' ||
+					array3x3[1][0] == 'o' && array3x3[1][1] == 'o' && array3x3[1][2] == 'o' ||
+					array3x3[2][0] == 'o' && array3x3[2][1] == 'o' && array3x3[2][2] == 'o' ||
+					array3x3[0][0] == 'o' && array3x3[1][0] == 'o' && array3x3[2][0] == 'o' ||
+					array3x3[0][1] == 'o' && array3x3[1][1] == 'o' && array3x3[2][1] == 'o' ||
+					array3x3[0][2] == 'o' && array3x3[1][2] == 'o' && array3x3[2][2] == 'o' ||
+					array3x3[0][0] == 'o' && array3x3[1][1] == 'o' && array3x3[2][2] == 'o' ||
+					array3x3[0][2] == 'o' && array3x3[1][1] == 'o' && array3x3[2][0] == 'o') {
+				 clear();
+				cout << "Победа ноликов\n\nВведите любое число для выхода...\n\n";
+				int c; cin >> c;
+				clear();
+				return 0;
+			}
+			else if (array3x3[0][0] != '.' && array3x3[0][1] != '.' && array3x3[0][2] != '.' &&
+					array3x3[1][0] != '.' && array3x3[1][1] != '.' && array3x3[1][2] != '.' &&
+					array3x3[2][0] != '.' && array3x3[2][1] != '.' && array3x3[2][2] != '.') {
+				Sleep(50000);
+				clear();
+				cout << "Ничья!\n\nВведите любое число для выхода...\n\n";
+				int c; cin >> c;
+				clear();
+				return 0;
+				}
+			
+
+			
+
+		
+		Sleep(500); clear();
+	}
+}
+int game2(int bot)
+{
+
+	int player1, player2;
+	char array4x4[4][4] = {		'.','.','.','.',
+								'.','.','.','.',
+								'.','.','.' ,'.',
+								'.','.','.' ,'.'};
+	int way = 1;
+	while (true) {
+		clear();
+		way++;
+
+		cout << "\t1\t2\t3\t4\n\n\n\n";
+
+		for (int i = 0; i < 4 ; i++) {
+			cout << i + 1 << "\t";
+			for (int ii = 0; ii < 4; ii++) {
+				cout << array4x4[i][ii] << "\t";
+			}
+			cout << "\n\n\n\n";
+		}
+		if (way % 2 == 0) {
+			cout << "Ход\t x\n";
+			while (true)
+			{
+				cout << "Введите число: ";
+				cin >> player1;
+				cout << "Введите число: ";
+				cin >> player2;
+				if (array4x4[player1 - 1][player2 - 1] == '.') {
+					array4x4[player1 - 1][player2 - 1] = 'x';
+					break;
+				}
+				cout << "Это поле уже занято!!! Введите повторно!\n\n";
+			}
+
+		}
+		else if (bot == 2) {
+			cout << "Ход\t o\n";
+			int w, w2;
+			while (true)
+			{
+				Sleep(1000);
+				w = rand() % 4;
+				w2 = rand() % 4;
+				if (array4x4[w][w2] == '.') {
+					array4x4[w][w2] = 'o';
+					break;
+				}
+			}
+		}
+		else if (bot == 1 && way % 2 != 0) {
+			while (true)
+			{
+				cout << "Ход\t o\n";
+				cout << "Введите число: ";
+				cin >> player1;
+				cout << "Введите число: ";
+				cin >> player2;
+				if (array4x4[player1 - 1][player2 - 1] == '.') {
+					array4x4[player1 - 1][player2 - 1] = 'o';
+					break;
+				}
+				cout << "Это поле уже занято!!! Введите повторно!\n\n";
+			}
+		}
+
+
+
+		if (array4x4[0][0] == 'x' && array4x4[0][1] == 'x' && array4x4[0][2] == 'x' && array4x4[0][3] == 'x' ||
+			array4x4[1][0] == 'x' && array4x4[1][1] == 'x' && array4x4[1][2] == 'x' && array4x4[1][3] == 'x' ||
+			array4x4[2][0] == 'x' && array4x4[2][1] == 'x' && array4x4[2][2] == 'x' && array4x4[2][3] == 'x' ||
+			array4x4[3][0] == 'x' && array4x4[3][1] == 'x' && array4x4[3][2] == 'x' && array4x4[3][3] == 'x' ||
+
+			array4x4[0][0] == 'x' && array4x4[1][0] == 'x' && array4x4[2][0] == 'x' && array4x4[3][0] == 'x' ||
+			array4x4[0][1] == 'x' && array4x4[1][1] == 'x' && array4x4[2][1] == 'x' && array4x4[3][1] == 'x' ||
+			array4x4[0][2] == 'x' && array4x4[1][2] == 'x' && array4x4[2][2] == 'x' && array4x4[3][2] == 'x' ||
+			array4x4[0][3] == 'x' && array4x4[1][3] == 'x' && array4x4[2][3] == 'x' && array4x4[3][3] == 'x' ||
+
+
+			array4x4[0][0] == 'x' && array4x4[1][1] == 'x' && array4x4[2][2] == 'x' && array4x4[3][3] == 'x' ||
+			array4x4[0][3] == 'x' && array4x4[1][2] == 'x' && array4x4[2][1] == 'x' && array4x4[3][0] == 'x') {
+			clear();
+			cout << "Победа крестиков\n\nВведите любое число для выхода...\n\n";
+			int c; cin >> c;
+			clear();
+			return 0;
+		}
+		else if
+			(array4x4[0][0] == 'o' && array4x4[0][1] == 'o' && array4x4[0][2] == 'o' && array4x4[0][3] == 'o' ||
+				array4x4[1][0] == 'o' && array4x4[1][1] == 'o' && array4x4[1][2] == 'o' && array4x4[1][3] == 'o' ||
+				array4x4[2][0] == 'o' && array4x4[2][1] == 'o' && array4x4[2][2] == 'o' && array4x4[2][3] == 'o' ||
+				array4x4[3][0] == 'o' && array4x4[3][1] == 'o' && array4x4[3][2] == 'o' && array4x4[3][3] == 'o' ||
+
+				array4x4[0][0] == 'o' && array4x4[1][0] == 'o' && array4x4[2][0] == 'o' && array4x4[3][0] == 'o' ||
+				array4x4[0][1] == 'o' && array4x4[1][1] == 'o' && array4x4[2][1] == 'o' && array4x4[3][1] == 'o' ||
+				array4x4[0][2] == 'o' && array4x4[1][2] == 'o' && array4x4[2][2] == 'o' && array4x4[3][2] == 'o' ||
+				array4x4[0][3] == 'o' && array4x4[1][3] == 'o' && array4x4[2][3] == 'o' && array4x4[3][3] == 'o' ||
+
+
+				array4x4[0][0] == 'o' && array4x4[1][1] == 'o' && array4x4[2][2] == 'o' && array4x4[3][3] == 'o' ||
+				array4x4[0][3] == 'o' && array4x4[1][2] == 'o' && array4x4[2][1] == 'o' && array4x4[3][0] == 'o') {
+			clear();
+			cout << "Победа ноликов\n\nВведите любое число для выхода...\n\n";
+			int c; cin >> c;
+			clear();
+			return 0;
+		}
+		else if (array4x4[0][0] != '.' && array4x4[1][0] != '.'&& array4x4[2][0] != '.'&& array4x4[3][0] != '.'&&
+			array4x4[0][1] != '.'&& array4x4[1][1] != '.'&& array4x4[2][1] != '.'&& array4x4[3][1] != '.'&&
+			array4x4[0][2] != '.'&& array4x4[1][2] != '.'&& array4x4[2][2] != '.'&& array4x4[3][2] != '.'&&
+			array4x4[0][3] != '.'&& array4x4[1][3] != '.'&& array4x4[2][3] != '.'&& array4x4[3][3] != '.') {
+			
+			clear();
+			cout << "Ничья!\n\nВведите любое число для выхода...\n\n";
+			int c; cin >> c;
+			clear();
+			return 0;
+		}
+
+	}
+	Sleep(500); clear();
+}
+int game3(int bot) {
+
+	int player1, player2;
+	char array5x5[5][5] = { '.','.','.','.','.',
+							 '.','.','.','.','.',
+							 '.','.','.','.','.', 
+							 '.','.','.','.','.', 
+							 '.','.','.','.','.'};
+	int way = 1;
+	while (true) {
+		clear();
+		way++;
+
+		cout << "\t1\t2\t3\t4\t5\n\n\n\n";
+
+		for (int i = 0; i < 5; i++) {
+			cout << i + 1 << "\t";
+			for (int ii = 0; ii < 5; ii++) {
+				cout << array5x5[i][ii] << "\t";
+			}
+			cout << "\n\n\n\n";
+		}
+		if (way % 2 == 0) {
+			cout << "Ход\t x\n";
+			while (true)
+			{
+				cout << "Введите число: ";
+				cin >> player1;
+				cout << "Введите число: ";
+				cin >> player2;
+				if (array5x5[player1 - 1][player2 - 1] == '.') {
+					array5x5[player1 - 1][player2 - 1] = 'x';
+					break;
+				}
+				cout << "Это поле уже занято!!! Введите повторно!\n\n";
+			}
+
+		}
+		else if (bot == 2) {
+			cout << "Ход\t o\n";
+			int w, w2;
+			while (true)
+			{
+				Sleep(700);
+				w = rand() % 5;
+				w2 = rand() % 5;
+				if (array5x5[w][w2] == '.') {
+					array5x5[w][w2] = 'o';
+					break;
+				}
+			}
+		}
+		else if (bot == 1 && way % 2 != 0) {
+			while (true)
+			{
+				cout << "Ход\t o\n";
+				cout << "Введите число: ";
+				cin >> player1;
+				cout << "Введите число: ";
+				cin >> player2;
+				if (array5x5[player1 - 1][player2 - 1] == '.') {
+					array5x5[player1 - 1][player2 - 1] = 'o';
+					break;
+				}
+				cout << "Это поле уже занято!!! Введите повторно!\n\n";
+			}
+		}
+		if (array5x5[0][0] == 'x' && array5x5[0][1] == 'x' && array5x5[0][2] == 'x' && array5x5[0][3] == 'x' && array5x5[0][4] == 'x' ||
+			array5x5[1][0] == 'x' && array5x5[1][1] == 'x' && array5x5[1][2] == 'x' && array5x5[1][3] == 'x' && array5x5[1][4] == 'x' ||
+			array5x5[2][0] == 'x' && array5x5[2][1] == 'x' && array5x5[2][2] == 'x' && array5x5[2][3] == 'x' && array5x5[2][4] == 'x' ||
+			array5x5[3][0] == 'x' && array5x5[3][1] == 'x' && array5x5[3][2] == 'x' && array5x5[3][3] == 'x' && array5x5[3][4] == 'x' ||
+			array5x5[4][0] == 'x' && array5x5[4][1] == 'x' && array5x5[4][2] == 'x' && array5x5[4][3] == 'x' && array5x5[4][4] == 'x' ||
+
+
+			array5x5[0][0] == 'x' && array5x5[1][0] == 'x' && array5x5[2][0] == 'x' && array5x5[3][0] == 'x' && array5x5[4][0] == 'x' ||
+			array5x5[0][1] == 'x' && array5x5[1][1] == 'x' && array5x5[2][1] == 'x' && array5x5[3][1] == 'x' && array5x5[4][1] == 'x' ||
+			array5x5[0][2] == 'x' && array5x5[1][2] == 'x' && array5x5[2][2] == 'x' && array5x5[3][2] == 'x' && array5x5[4][2] == 'x' ||
+			array5x5[0][3] == 'x' && array5x5[1][3] == 'x' && array5x5[2][3] == 'x' && array5x5[3][3] == 'x' && array5x5[4][3] == 'x' ||
+			array5x5[0][4] == 'x' && array5x5[1][4] == 'x' && array5x5[2][4] == 'x' && array5x5[3][4] == 'x' && array5x5[4][4] == 'x' ||
+
+
+			array5x5[0][0] == 'x' && array5x5[1][1] == 'x' && array5x5[2][2] == 'x' && array5x5[3][3] == 'x' && array5x5[4][4] == 'x' ||
+			array5x5[0][4] == 'x' && array5x5[1][3] == 'x' && array5x5[2][2] == 'x' && array5x5[3][1] == 'x' && array5x5[4][0] == 'x') {
+			clear();
+			cout << "Победа крестиков\n\nВведите любое число для выхода...\n\n";
+			int c; cin >> c;
+			clear();
+			return 0;
+		}
+		else if
+			(array5x5[0][0] == 'o' && array5x5[0][1] == 'o' && array5x5[0][2] == 'o' && array5x5[0][3] == 'o' && array5x5[0][4] == 'o' ||
+				array5x5[1][0] == 'o' && array5x5[1][1] == 'o' && array5x5[1][2] == 'o' && array5x5[1][3] == 'o' && array5x5[1][4] == 'o' ||
+				array5x5[2][0] == 'o' && array5x5[2][1] == 'o' && array5x5[2][2] == 'o' && array5x5[2][3] == 'o' && array5x5[2][4] == 'o' ||
+				array5x5[3][0] == 'o' && array5x5[3][1] == 'o' && array5x5[3][2] == 'o' && array5x5[3][3] == 'o' && array5x5[3][4] == 'o' ||
+				array5x5[4][0] == 'o' && array5x5[4][1] == 'o' && array5x5[4][2] == 'o' && array5x5[4][3] == 'o' && array5x5[4][4] == 'o' ||
+
+
+				array5x5[0][0] == 'o' && array5x5[1][0] == 'o' && array5x5[2][0] == 'o' && array5x5[3][0] == 'o' && array5x5[4][0] == 'o' ||
+				array5x5[0][1] == 'o' && array5x5[1][1] == 'o' && array5x5[2][1] == 'o' && array5x5[3][1] == 'o' && array5x5[4][1] == 'o' ||
+				array5x5[0][2] == 'o' && array5x5[1][2] == 'o' && array5x5[2][2] == 'o' && array5x5[3][2] == 'o' && array5x5[4][2] == 'o' ||
+				array5x5[0][3] == 'o' && array5x5[1][3] == 'o' && array5x5[2][3] == 'o' && array5x5[3][3] == 'o' && array5x5[4][3] == 'o' ||
+				array5x5[0][4] == 'o' && array5x5[1][4] == 'o' && array5x5[2][4] == 'o' && array5x5[3][4] == 'o' && array5x5[4][4] == 'o' ||
+
+
+				array5x5[0][0] == 'o' && array5x5[1][1] == 'o' && array5x5[2][2] == 'o' && array5x5[3][3] == 'o' && array5x5[4][4] == 'o' ||
+				array5x5[0][4] == 'o' && array5x5[1][3] == 'o' && array5x5[2][2] == 'o' && array5x5[3][1] == 'o' && array5x5[4][0] == 'o') {
+			clear();
+			cout << "Победа ноликов\n\nВведите любое число для выхода...\n\n";
+			int c; cin >> c;
+			clear();
+			return 0;
+		}
+		else if (array5x5[0][0] != '.' && array5x5[1][0] != '.' && array5x5[2][0] != '.' && array5x5[3][0] != '.' && array5x5[4][0] != '.' &&
+			array5x5[0][1] != '.' && array5x5[1][1] != '.' && array5x5[2][1] != '.' && array5x5[3][1] != '.' && array5x5[4][1] != '.' &&
+			array5x5[0][2] != '.' && array5x5[1][2] != '.' && array5x5[2][2] != '.' && array5x5[3][2] != '.' && array5x5[4][2] != '.' &&
+			array5x5[0][3] != '.' && array5x5[1][3] != '.' && array5x5[2][3] != '.' && array5x5[3][3] != '.' && array5x5[4][3] != '.' &&
+			array5x5[0][4] != '.' && array5x5[1][4] != '.' && array5x5[2][4] != '.' && array5x5[3][4] != '.' && array5x5[4][4] != '.') {
+			clear();
+			cout << "Ничья!\n\nВведите любое число для выхода...\n\n";
+			int c; cin >> c;
+			clear();
+			return 0;
+		}
+
+	}
+	Sleep(500); clear();
+}
+
+int main() {
+	setlocale(0, "");
+	system("color 0F");
+	srand(time(NULL));
+
+#pragma region Задание крестики нолики
+
+	int size = 1, bot = 2;
+	char array3x3[3][3] = { '.','.','.',
+								'.','.','.',
+								'.','.','.' };
+	while (true) {
+		int menu;
+		cout << "[1] Играть\t\t"
+			"\n[2] Правила\n"
+			"[3] Настройки\n"
+			"[4] Выход\n\n";
+		cin >> menu;
+		switch (menu) {
+		case 1: {
+			if (size == 1) {
+				game1(bot);
+				break;
+			}
+			else if (size == 2) {
+				game2(bot);
+				break;
+				
+			}
+			else if (size == 3) {
+				game3(bot);
+				break;
+			}
+			else
+				cout << "Ошибка!";
+		case 2: {
+			clear();
+			cout << "[+] Правила \"Крестиков-ноликов\"\n\nИгроки по очереди ставят на свободные клетки поля знаки (один всегда крестики, другой всегда нолики).\nПервый, выстроивший в ряд своих фигуры по вертикали, горизонтали или диагонали, выигрывает.\n\n[9] Назад\n\n";
+			cin >> menu;
+			switch (menu)
+			{
+			case 9: {
+				clear();
+				break; }
+			default: {
+				clear();
+				cout << "Ошибка!";
+				Sleep(600);
+				clear();
+				break; }
+			}
+
+			break; }
+		case 3: {
+			clear();
+			int setting;
+			cout << "[+] Настройки\n\n"
+				"[1]Изменить размер поля\n"
+				"[2]Изменить противника\n";
+				cin >> setting;
+				clear();
+				if (setting == 1) {
+					cout << "Размер поля: \n\n"
+						"[1] 3x3\n"
+						"[2] 4x4\n"
+						"[3] 5x5\n";
+					cin >> size;
+					clear();
+				}
+				else if (setting == 2) {
+
+					cout << "Поменять противника\n\n"
+						"[1] Против человека\n"
+						"[2] Против бота\n";
+					cin >> bot;
+					clear();
+				}
+			break;
+		}
+		case 4: {
+			return 0;
+			break;
+		}
+		default: {
+			clear();
+			cout << "Ошибка!\n";
+			Sleep(600);
+			clear();
+		}
+		}
+#pragma endregion
+		}
+	}
+}
