@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    setlocale(0, "");
+
+	int a;
+	cout << "[1] - Январь\n"
+		"[2] - Февраль\n"
+		"[3] - Март\n"
+		"[4] - Апрель\n"
+		"[5] - Май\n"
+		"[6] - Июнь\n"
+		"[7] - Июль\n"
+		"[8] - Август\n"
+		"[9] - Сентябрь\n"
+		"[10] - Октябрь\n"
+		"[11] - Ноябрь\n"
+		"[12] - Декабрь\n\n"
+		"Выберите месяц года: \n\n\t";
+
+	cin >> a;
+	switch (a) {
+	case 1:
+		cout << "\nВы выбрали январь.";
+		break;
+	case 2:
+		cout << "\nВы выбрали февраль.";
+		break;
+	case 3:
+		cout << "\nВы выбрали март.";
+		break;
+	case 4:
+		cout << "\nВы выбрали апрель.";
+		break;
+	case 5:
+		cout << "\nВы выбрали май.";
+		break;
+	case 6:
+		cout << "\nВы выбрали июнь.";
+		break;
+	case 7:
+		cout << "\nВы выбрали июль.";
+		break;
+	case 8:
+		cout << "\nВы выбрали август.";
+		break;
+	case 9:
+		cout << "\nВы выбрали  сентябрь.";
+		break;
+	case 10:
+		cout << "\nВы выбрали октябрь.";
+		break;
+	case 11:
+		cout << "\nВы выбрали ноябрь.";
+		break;
+	case 12:
+		cout << "\nВы выбрали декабрь.";
+		break;
+	default:
+		cout << "\nВы выбрали не верное значение!";
+		break;
+	}
+
+    return 0;
+}
