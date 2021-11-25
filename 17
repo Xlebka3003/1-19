@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+
+double calcul(double number1, double number2, char sumbol) {
+	switch (sumbol) {
+	case '+': {
+		return number1 + number2;
+		break;
+	}
+	case '-': {
+		return number1 - number2;
+		break;
+	}
+	case '*': {
+		return number1 * number2;
+		break;
+	}
+	case '/': {
+		return number1 / number2;
+		break;
+	}
+	case '%': {
+		return (int)number1 % (int)number2;
+		break;
+	}
+	case '1': {
+		return number1 + number2 * 10;
+		break;
+	}
+	case '3': {
+		return number1 + number2 * 30;
+		break;
+	}
+	case '5': {
+		return number1 + number2 * 50;
+		break;
+	}
+	default: {
+		return 0;
+	}
+	}
+}
+
+
+int main() {
+	setlocale(0, "");
+
+	cout << "[+] Калькулятор\n\n"
+		"Введите число: ";
+	double number1;
+	cin >> number1;
+	cout << "Введите втрое число: ";
+	double number2;
+	cin >> number2;
+	cout << "Введите символ: ";
+	char sumbol;
+	cin >> sumbol;
+	cout << "\nРезультат: " << calcul(number1, number2, sumbol);
+
+	return 0;
+}
